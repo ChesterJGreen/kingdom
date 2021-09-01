@@ -39,6 +39,7 @@ namespace kingdom
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "kingdom", Version = "v1" });
             });
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
+            Services.AddTransient<KnightsService>();
             
             services.AddScoped<AccountsRepository>();
             services.AddScoped<AccountService>();
