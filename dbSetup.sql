@@ -6,3 +6,11 @@ CREATE TABLE IF NOT EXISTS accounts(
   email varchar(255) COMMENT 'User Email',
   picture varchar(255) COMMENT 'User Picture'
 ) default charset utf8 COMMENT '';
+CREATE TABLE knights(  
+    id int NOT NULL primary key AUTO_INCREMENT comment 'primary key',
+    castleId int NOT NULL comment 'where the knight comes from',
+    name varchar(255) comment 'name of the knight',
+    mission VARCHAR(225) comment 'what is the knight doing?'
+) default charset utf8;
+
+

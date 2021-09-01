@@ -1,6 +1,7 @@
 using System;
+using System.Collections.Generic;
 using kingdom.Models;
-
+using kingdom.Repositories;
 
 namespace kingdom.Services
 {
@@ -11,7 +12,7 @@ namespace kingdom.Services
       {
           _repo = repo;
       }    
-      internal IEnumberable<Knight> Get()
+      internal IEnumerable<Knight> Get()
     {
         return _repo.Get();
     }
@@ -31,7 +32,8 @@ namespace kingdom.Services
         Knight knight = _repo.Create(newKnight);
         if (knight == null)
         {
-            throw new Exception("Invalid Id")
+            throw new Exception("Invalid Id");
+            
         }
         return knight;
     }
@@ -41,8 +43,8 @@ namespace kingdom.Services
       Knight original = Get(updatedKnight.Id);
       updatedKnight.Name = updatedKnight.Name != null ? updatedKnight.Name : original.Name;
       updatedKnight.Mission = updatedKnight.Mission != null ? updatedKnight.Mission : original.Mission;
-      updatedKnight.CastleId = updatedKnight.CastleId != null ? updatedKnight.CastleId : original.CastleId;
-      return _repo.Update(updatedKnight)
+      updatedKnight.CastleId = updatedKnight.CastleId != original.CastleId ? updatedKnight.CastleId : original.CastleId;
+      return _repo.Update(updatedKnight);
     }
 
     internal void Delete(int id)

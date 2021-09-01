@@ -19,7 +19,7 @@ namespace kingdom.Controllers
         {
             try
             {
-                 IEnumberable<Knight> knights = _knightsService.Get();
+                 IEnumerable<Knight> knights = _knightsService.Get();
                  return Ok(knights);
             }
             catch (Exception err)
@@ -48,7 +48,7 @@ namespace kingdom.Controllers
             try
             {
                  Knight knight = _knightsService.Create(newKnight);
-                 return Ok(Knight);
+                 return Ok(knight);
             }
             catch (Exception err)
             {

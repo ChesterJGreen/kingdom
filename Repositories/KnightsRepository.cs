@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace kingdom.Repositories
 {
-  internal class KnightsRepository
+  public class KnightsRepository
   {
     private readonly IDbConnection _db;
     public KnightsRepository(IDbConnection db)
