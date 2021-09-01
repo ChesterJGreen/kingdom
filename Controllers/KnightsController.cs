@@ -28,5 +28,62 @@ namespace kingdom.Controllers
                 return BadRequest(err.Message);
             }
         }
+        [HttpGet("{id}")]
+        public ActionResult<Knight> Get(int id)
+        {
+            try
+            {
+                 Knight knight = _knightsService.Get(id);
+                 return Ok(knight);
+            }
+            catch (Exception err)
+            {
+                
+                return BadRequest(err.Message);     
+            }
+        }
+        [HttpPost]
+        public ActionResult<Knight> Create([FromBody] Knight newKnight)
+        {
+            try
+            {
+                 Knight knight = _knightsService.Create(newKnight);
+                 return Ok(Knight);
+            }
+            catch (Exception err)
+            {
+                
+                return BadRequest(err.Message);
+            }
+        }
+        [HttpPut("{id}")]
+        public ActionResult<Knight> Edit([FromBody] Knight updatedKnight, int id)
+        {
+            try
+            {
+                 updatedKnight.Id = id;
+                 Knight knight = _knightsService.Edit(updatedKnight);
+                 return Ok(knight);
+            }
+            catch (Exception err)
+            {
+                
+                return BadRequest(err.Message);
+            }
+        }
+        [HttpDelete("{id}")]
+        public ActionResult<String> Delete(int id)
+        {
+            try
+            {
+                 _knightsService.Delete(id);
+                 return Ok("Successfully Delete");
+            }
+            catch (Exception err)
+            {
+                
+                return BadRequest(err.Message);
+            }
+        }
     }
 }
