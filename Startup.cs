@@ -41,6 +41,8 @@ namespace kingdom
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
             services.AddTransient<KnightsService>();
             services.AddTransient<KnightsRepository>();
+            services.AddTransient<CastlesRepository>();
+            services.AddTransient<CastlesService>();
             
             services.AddScoped<AccountsRepository>();
             services.AddScoped<AccountService>();

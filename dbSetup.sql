@@ -12,5 +12,9 @@ CREATE TABLE knights(
     name varchar(255) comment 'name of the knight',
     mission VARCHAR(225) comment 'what is the knight doing?'
 ) default charset utf8;
+CREATE TABLE castles(
+    id int NOT NULL primary key AUTO_INCREMENT comment 'primary key',
+    name varchar (255) comment 'name fo the castle'
+) default charset utf8;
 
 
